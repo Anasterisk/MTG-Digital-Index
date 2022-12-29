@@ -3,12 +3,12 @@ from .models import User, Card, List, Deck
 
 class CardSerializer(serializers.HyperlinkedModelSerializer):
     decks = serializers.HyperlinkedRelatedField(
-        view_name= 'card_deck',
+        view_name= 'deck_list',
         many = True,
         read_only = True
     )
     commander = serializers.HyperlinkedRelatedField(
-        view_name= 'card_deck',
+        view_name= 'deck_detail',
         many = True,
         read_only = True
     )
@@ -21,19 +21,19 @@ class DeckSerializer(serializers.HyperlinkedModelSerializer):
         many = True,
         read_only = True
     )
-    lists = serializers.HyperlinkedRelatedField(
-        view_name = 'list_deck',
+    lists_url = serializers.ModelSerializer.serializer_url_field(
+        view_name = 'list_list',
         many = True,
         read_only = True
     )
     users = serializers.HyperlinkedRelatedField(
-        view_name = 'user_deck',
+        view_name = 'user_detail',
         many = True,
         read_only = True
     )
     class Meta:
         model = Deck
-        fields = ('id','user_id','list_id','commander_id','card','cards','lists','users')
+        fields = ('id','user_id','list_id','commander_id','cards','lists_url','users')
 
 
 class ListSerializer(serializers.HyperlinkedModelSerializer):    
@@ -46,7 +46,7 @@ class ListSerializer(serializers.HyperlinkedModelSerializer):
         read_only = True
     )
     user = serializers.HyperlinkedRelatedField(
-        view_name = "lists",
+        view_name = "user_detail",
         read_only = True
     )
     class Meta:
@@ -55,13 +55,11 @@ class ListSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    lists = serializers.HyperlinkedRelatedField(
-        view_name='lists',
+    lists = ListSerializer(
         many = True,
         read_only=True
     )
-    decks = serializers.HyperlinkedRelatedField(
-        view_name='user_deck',
+    decks = DeckSerializer(
         many = True,
         read_only = True,
     )

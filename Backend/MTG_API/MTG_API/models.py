@@ -47,10 +47,11 @@ class List(models.Model):
 class Deck(models.Model):
     user =  models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_deck')
     list = models.ForeignKey(List, on_delete=models.CASCADE, related_name='list_deck')
-    card = models.ForeignKey(Card, on_delete=models.CASCADE, related_name='card_deck')
+    card = models.ManyToManyField(Card)
     commander = models.ForeignKey(
         Card,
         on_delete= models.CASCADE,
         related_name = 'commander_card',
-        blank= True
+        blank= True,
+        null=True
     )
