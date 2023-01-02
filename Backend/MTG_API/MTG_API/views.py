@@ -35,3 +35,9 @@ class DeckList(generics.ListCreateAPIView):
 class DeckDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Deck.objects.all()
     serializer_class = DeckSerializer
+
+# class Register(generics.ListCreateAPIView):
+#     model = User
+#     serializer_class = UserSerializer
+#     def perform_create(self, serializer):
+#         queryset = SignupReque

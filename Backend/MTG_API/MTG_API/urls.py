@@ -12,4 +12,6 @@ urlpatterns = [
     path('lists/<int:pk>', views.ListDetail.as_view(), name = 'list_detail'),
     path('decks/',views.DeckList.as_view(),  name = 'deck_list'),
     path('decks/<int:pk>', views.DeckDetail.as_view(), name = 'deck_detail'),
+
+    # path('register', views.register, name='register')
 ]
