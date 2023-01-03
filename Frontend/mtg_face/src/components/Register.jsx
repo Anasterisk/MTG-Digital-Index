@@ -17,8 +17,8 @@ export default function Register (){
 
     const register = async(data) =>{
         try{
-            const response = await axios.create()
-
+            const response = await axios.create(`http://localhost:8000/users/`, data)
+            return response.data
         } catch(error){
             throw error
         }
@@ -38,12 +38,13 @@ export default function Register (){
         <div>
             I am the register
             <form onSubmit={handleSubmit}>
+                <label> Name:</label>
+                <input type='text' id='name' onChange ={handleChange} value={form.name}></input>
                 <label> Username:</label>
                 <input type='text' id='username' onChange ={handleChange} value={form.username}></input>
                 <label> Password:</label>
                 <input type='text' id='password' onChange ={handleChange} value={form.password}></input>
-                <label> Name:</label>
-                <input type='text' id='name' onChange ={handleChange} value={form.name}></input>
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )

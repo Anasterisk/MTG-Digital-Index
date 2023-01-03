@@ -1,12 +1,13 @@
 import axios from "axios"
 import { useState, useEffect, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import Claim from "./Claim";
 
 export default function CardDetails (){
     const navigate = useNavigate();
     let {id} = useParams();
     const [card, setCard] = useState(null)
-    
+  
     useEffect(()=>{
         const getCard = async ()=>{
                 try{
@@ -19,7 +20,7 @@ export default function CardDetails (){
     
             getCard()
         },[])
-
+        
 console.log(card)
     return(
         <div>
@@ -41,7 +42,7 @@ console.log(card)
             <div>Power: {card.power}</div>
             <div>Toughness: {card.toughness}</div>
             <div>Id: {card.multiverseid}</div>
-            
+            <Claim card = {card}/> 
         </div>
     )
 }
