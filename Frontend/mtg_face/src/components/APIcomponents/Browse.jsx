@@ -15,8 +15,11 @@ export default function Browse (){
     useEffect(()=>{
         const getCards = async ()=>{
                 try{
-                    const response = await axios.get(`http://api.magicthegathering.io/v1/cards?page=2`)
-                    setCards(response.data.cards)
+                    const response = await axios.get(`http://localhost:8000/api/cards`)
+                    setCards(response.data)
+                    // const response = await axios.get(`http://api.magicthegathering.io/v1/cards?page=2`)
+                    // setCards(response.data.cards)
+                    console.log(response)
                 } catch (error){
                     throw error
                 }
@@ -44,9 +47,11 @@ console.log(cards)
         <div>
             <div>
                 {cards.map((x)=>(
-                    (!x.imageUrl)?null:
+                    // (!x.imageUrl)?null:
+                    <div>
                     <img onClick={()=>goToCard(x)}src={x.imageUrl}></img>
-                    // <div>{x.name}</div>
+                    <div>{x.name}</div>
+                    </div>
                 ))}
             </div>
             {/* <button onClick={previousPage()} >Previous Page</button> */}

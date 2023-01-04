@@ -11,8 +11,10 @@ export default function CardDetails (){
     useEffect(()=>{
         const getCard = async ()=>{
                 try{
-                    const response = await axios.get(`http://api.magicthegathering.io/v1/cards/${id}`)
+                    const response = await axios.get(`http://localhost:8000/api/cards/${id}`)
+                    // const response = await axios.get(`http://api.magicthegathering.io/v1/cards/${id}`)
                     setCard(response.data)
+                    console.log(response)
                 } catch (error){
                     throw error
                 }
@@ -20,12 +22,12 @@ export default function CardDetails (){
     
             getCard()
         },[])
-        
+
 console.log(card)
     return(
         <div>
             I am the Details page
-            <div>Name: {card.name}</div>
+            {/* <div>Name: {card.name}</div>
             <img src={card.imageUrl}></img>
             <div>Alias: {card.names}</div>
             <div>Layout: {card.layout}</div>
@@ -41,7 +43,7 @@ console.log(card)
             <div>Text: {card.text}</div>
             <div>Power: {card.power}</div>
             <div>Toughness: {card.toughness}</div>
-            <div>Id: {card.multiverseid}</div>
+            <div>Id: {card.multiverseid}</div> */}
             <Claim card = {card}/> 
         </div>
     )

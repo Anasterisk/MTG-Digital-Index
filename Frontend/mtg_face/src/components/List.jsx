@@ -10,7 +10,7 @@ export default function List (){
     useEffect(()=>{
         const getList = async () =>{
             try{
-                const response = await axios.get(`http://localhost:8000/lists/${id}`)
+                const response = await axios.get(`http://localhost:8000/api/lists/${id}`)
                 setList(response.data)
             } catch (error){
                 throw error
@@ -25,12 +25,18 @@ export default function List (){
 
     console.log(list)
     return(
-        (!list)?<div> Loading </div>:
+        (!list)?null:
         <div className="list">
             <div>Name:{list.name}</div>
             <div>Status:{list.status}</div>
             <div>Description:"{list.description}"</div>
             <div>cards: {list.quantity}/100</div>
+            {list.deck.map((x)=>(
+                <div>
+                    <img src={x.imageUrl} ></img>
+                    <div>{x.name}</div>
+                </div>
+            ))}
             <div></div>
         </div>
     )
