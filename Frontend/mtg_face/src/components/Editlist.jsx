@@ -12,7 +12,7 @@ export default function EditList (){
         description: '',
     }
     const [list, setList] = useState(intialState)
-    const [form, setForm] = useState(card)
+  
     
     useEffect(()=>{
         const getList = async ()=>{
@@ -27,11 +27,11 @@ export default function EditList (){
     
             getList()
         },[])
-
+  const [form, setForm] = useState(list)
         
     const updateList = async (data)=>{
                 try{
-                    const response = await axios.put(`http://localhost:8000/api/list/${id}`, data)
+                    const response = await axios.put(`http://localhost:8000/api/lists/${id}`, data)
                     setList(response.data)
                     console.log(response)
                 } catch (error){
@@ -57,11 +57,10 @@ export default function EditList (){
             <label> Name:</label>
             <input type='text' id='name' placeholder={list.name} onChange ={handleChange} value={form.name}></input>
             <label> Status:</label>
-            <input type='text' id='status' placeholder={card.status} onChange ={handleChange} value={form.status}></input>
+            <input type='text' id='status' placeholder={list.status} onChange ={handleChange} value={form.status}></input>
             <label> Description:</label>
-            <input type='text' id='description' placeholder={card.description} onChange ={handleChange} value={form.description}></input>
-            <label> Cost:</label>
-            <input type='number' id='cost' placeholder={card.cost} onChange ={handleChange} value={form.cost}></input>
+            <input type='text' id='description' placeholder={list.description} onChange ={handleChange} value={form.description}></input>
+
             <button type='submit'>Submit</button>
         </form>
     </div>
