@@ -10,7 +10,7 @@ export default function Profile (){
 useEffect(()=>{
     const getUser = async ()=>{
             try{
-                const response = await axios.get(`http://localhost:8000/users/${id}`)
+                const response = await axios.get(`http://localhost:8000/api/users/${id}`)
                 setUser(response.data)
             } catch (error){
                 throw error
@@ -25,7 +25,7 @@ useEffect(()=>{
     }
 console.log(user)
     return(
-        (!user)? <div>Please Wait, Loading</div>:
+        (!user)? null:
         <div>
             <div>{user.name}'s Page</div>
             <div>
