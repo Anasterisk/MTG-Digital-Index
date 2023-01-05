@@ -54,8 +54,8 @@ console.log(cards)
                     </div>
                 ))}
             </div>
-            {/* <button onClick={previousPage()} >Previous Page</button> */}
-            {/* <button onClick={nextPage()}> Next Page</button> */}
+            {/* <button onClick={()=>previousPage()} >Previous Page</button> */}
+            {/* <button onClick={()=>nextPage()}> Next Page</button> */}
         </div>
     )
 }

@@ -27,6 +27,9 @@ export default function CardDetails (){
 const deleteCard = ()=>{
         navigate(`/api/delete/${id}/`,{replace:true})
     }
+const editCard = ()=>{
+    navigate(`/api/edit/${id}`,{replace:true})
+}
 
 console.log(card)
     return(
@@ -52,6 +55,7 @@ console.log(card)
 
 
             <button onClick={()=>deleteCard()}>Delete?</button>
+            <button onClick={()=>editCard()}>Edit</button>
         </div>
     )
 }

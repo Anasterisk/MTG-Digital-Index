@@ -1,10 +1,11 @@
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function CreateCard (){
 
     const navigate = useNavigate()
+    let {id}= useParams()
 
     const intialState = {
         name:'',
@@ -23,7 +24,7 @@ export default function CreateCard (){
 
     const submitCard = async(data) =>{
         try{
-            const response = await axios.post(`http://localhost:8000/api/cards/submit`, data)
+            const response = await axios.post(`http://localhost:8000/api/cards/edit/${id}`, data)
             return response.data
         } catch(error){
             throw error
