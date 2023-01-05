@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Claim from "./Claim";
+import DeleteCard from "./DeleteCard";
 
 export default function CardDetails (){
     const navigate = useNavigate();
@@ -22,6 +23,10 @@ export default function CardDetails (){
     
             getCard()
         },[])
+
+const deleteCard = ()=>{
+        navigate(`/api/delete/${id}/`,{replace:true})
+    }
 
 console.log(card)
     return(
@@ -44,7 +49,9 @@ console.log(card)
             <div>Power: {card.power}</div>
             <div>Toughness: {card.toughness}</div>
             <div>Id: {card.multiverseid}</div> */}
-            <Claim card = {card}/> 
+
+
+            <button onClick={()=>deleteCard()}>Delete?</button>
         </div>
     )
 }
