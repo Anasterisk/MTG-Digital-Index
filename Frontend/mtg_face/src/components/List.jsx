@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-
+import Remove from './Deckfunction/Remove'
 export default function List (){
     const navigate = useNavigate();
     let {id}= useParams();
@@ -35,6 +35,9 @@ export default function List (){
                 <div>
                     <img src={x.imageUrl}  ></img>
                     <div onClick={()=>goToCard(x)}>{x.name}</div>
+                    <div>{x.CardList.cardId}</div>
+                    <div>{x.CardList.listId}</div>
+                    <Remove deck={x.CardList}/>
                 </div>
             ))}
             <div></div>
