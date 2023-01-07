@@ -16,7 +16,7 @@ export default function Add(props){
     useEffect(()=>{
         const getUser = async ()=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/users/${id}`)
+                    const response = await axios.get(`http://localhost:8000/api/users/get/${id}`)
                     setUser(response.data)
                 } catch (error){
                     throw error

@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-
+import { DataContext } from "./DataContext"
 
 export default function Login (){
     const navigate = useNavigate()
@@ -12,23 +12,23 @@ export default function Login (){
     }
     const [form, setForm] = useState(intialState)
     const [user, setUser] = useState(null)
+    const {userInfo, setUserInfo} = useContext(DataContext)
         const login = async (data)=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/users/login`, data )
+                    const response = await axios.get(`http://localhost:8000/api/users/login/bypass`, data )
                     setUser(response.data)
-                    console.log(response)
+                    setUserInfo(response.data[0])
                 } catch (error){
                     throw error
                 }
             };
-
         const handleChange = (e) =>{
             setForm({...form, [e.target.id]:e.target.value})
         }
         const handleSubmit = async (e)=>{
             e.preventDefault()
             await login(form)
-            // setForm(intialState)
+            setForm(intialState)
         }
     return(
         <div>

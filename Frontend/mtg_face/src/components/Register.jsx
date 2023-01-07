@@ -17,7 +17,7 @@ export default function Register (){
 
     const register = async(data) =>{
         try{
-            const response = await axios.post(`http://localhost:8000/api/users/register`, data)
+            const response = await axios.post(`http://localhost:8000/api/users/register/`, data)
             return response.data
         } catch(error){
             throw error

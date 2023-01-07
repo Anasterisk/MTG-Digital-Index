@@ -20,7 +20,7 @@ export default function List (){
     },[])
 
     const goToCard =(x)=>{
-        navigate(`api/cards/${x.cardlist.card_Id}`)
+        navigate(`/api/card/${x.id}`)
     }
 
     console.log(list)
@@ -33,8 +33,8 @@ export default function List (){
             <div>cards: {list.deck.length}/100</div>
             {list.deck.map((x)=>(
                 <div>
-                    <img src={x.imageUrl} onClick={()=>goToCard(x)} ></img>
-                    <div>{x.name}</div>
+                    <img src={x.imageUrl}  ></img>
+                    <div onClick={()=>goToCard(x)}>{x.name}</div>
                 </div>
             ))}
             <div></div>
