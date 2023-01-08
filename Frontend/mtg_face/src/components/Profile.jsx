@@ -5,13 +5,14 @@ import { DataContext } from "./DataContext";
 
 export default function Profile (){
     const navigate = useNavigate();
+    
     let {id} = useParams();
-    const {userInfo, setUserInfo} = useState(DataContext)
+    const {userInfo, setUserInfo} = useContext(DataContext)
     const [user, setUser] = useState(null)
 useEffect(()=>{
     const getUser = async ()=>{
             try{
-                const response = await axios.get(`http://localhost:8000/api/users/get/3`)
+                const response = await axios.get(`http://localhost:8000/api/users/get/${userInfo.id}`)
                 setUser(response.data)
                 
             } catch (error){
@@ -21,7 +22,7 @@ useEffect(()=>{
 
         getUser()
     },[])
-console.log(user)
+console.log(userInfo)
     const goToList = (x)=>{
         navigate(`/list/${x.id}`)
     }

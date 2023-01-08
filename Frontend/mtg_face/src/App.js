@@ -14,7 +14,7 @@ function App() {
   console.log(cart)
   return (
     <div className="App">
-      <DataContext.Provider value={{userInfo,setUserInfo, cart, setCart}}>
+      <DataContext.Provider value={{userInfo,setUserInfo}}>
         <Header/>
         <Main/>
         <Footer/>
