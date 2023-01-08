@@ -24,7 +24,7 @@ export default function EditCard (){
         const getCard = async ()=>{
                 try{
                     const response = await axios.get(`http://localhost:8000/api/cards/${id}`)
-                    setCard(response.data)
+                    setForm(response.data)
                     console.log(response)
                 } catch (error){
                     throw error
@@ -52,13 +52,17 @@ export default function EditCard (){
         const handleSubmit = async (e)=>{
             e.preventDefault()
             await updateCard(form)
-            setForm(intialState)
+            navigate(`/api/card/${form.id}`)
         }
     
-    
+        const deleteCard = ()=>{
+            navigate(`/api/delete/${id}/`,{replace:true})
+        }
+
+
         return(
         <div>
-        I am the register
+        <button onClick={()=>deleteCard()}>Delete?</button>
         <form onSubmit={handleSubmit}>
             <label> Name:</label>
             <input type='text' id='name' placeholder={card.name} onChange ={handleChange} value={form.name}></input>

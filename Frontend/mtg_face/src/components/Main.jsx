@@ -11,6 +11,7 @@ import Login from './Login'
 import {Route, Routes} from 'react-router-dom'
 export default function Main (){
 
+    
     return(
         <div>
             I am the main
@@ -21,7 +22,7 @@ export default function Main (){
                 <Route path='/profile/'  element = {<Profile/>}/>
                 
                 <Route path='/list/:id'     element = {<List/>}/>
-                <Route path='/list/create/:id' element = {<Createlist/>}/>
+                <Route path='/profile/create/:id' element = {<Createlist/>}/>
                 <Route path='/list/edit/:id' element = {<EditList/>}/>
                 <Route path='/list/delete/:id' element = {<DeleteList/>}/>
 

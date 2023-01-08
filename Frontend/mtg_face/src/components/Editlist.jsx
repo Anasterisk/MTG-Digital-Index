@@ -52,7 +52,6 @@ export default function EditList (){
     
         return(
         <div>
-        I am the Edit list
         <form onSubmit={handleSubmit}>
             <label> Name:</label>
             <input type='text' id='name' placeholder={list.name} onChange ={handleChange} value={form.name}></input>

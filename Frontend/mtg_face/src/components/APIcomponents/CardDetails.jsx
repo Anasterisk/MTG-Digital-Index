@@ -13,7 +13,6 @@ export default function CardDetails (){
         const getCard = async ()=>{
                 try{
                     const response = await axios.get(`http://localhost:8000/api/cards/${id}`)
-                    // const response = await axios.get(`http://api.magicthegathering.io/v1/cards/${id}`)
                     setCard(response.data)
                     console.log(response)
                 } catch (error){
@@ -24,9 +23,7 @@ export default function CardDetails (){
             getCard()
         },[])
 
-const deleteCard = ()=>{
-        navigate(`/api/delete/${id}/`,{replace:true})
-    }
+
 const editCard = ()=>{
     navigate(`/api/edit/${id}`,{replace:true})
 }
@@ -47,8 +44,8 @@ console.log(card)
             <div>Color Identity {card.colorIdentity}</div>
             {/* <div>Classification: {card.type}</div>
             <div>Class: {card.supertypes}</div> */}
-            <div>Type: {card.types}</div>
-            <div>Subtype: {card.subtypes}</div>
+            <div>Type: {card.type}</div>
+            <div>Subtype: {card.subtype}</div>
             {/* <div>Rarity: {card.rarity}</div>
             <div>Text: {card.text}</div>
             <div>Power: {card.power}</div>
@@ -56,8 +53,7 @@ console.log(card)
             <div>Id: {card.multiverseid}</div> */}
             </div>
             <Add card={card}/>
-            <button onClick={()=>deleteCard()}>Delete?</button>
-            <button onClick={()=>editCard()}>Edit</button>
+            <button onClick={()=>editCard()}>Edit Card</button>
         </div>
     )
 }

@@ -24,7 +24,7 @@ export default function CreateCard (){
 
     const submitCard = async(data) =>{
         try{
-            const response = await axios.post(`http://localhost:8000/api/cards/edit/${id}`, data)
+            const response = await axios.post(`http://localhost:8000/api/cards/submit`, data)
             return response.data
         } catch(error){
             throw error
@@ -38,6 +38,7 @@ export default function CreateCard (){
         e.preventDefault()
         await submitCard(form)
         setForm(intialState)
+        navigate('/api/browse')
     }
 
     return(

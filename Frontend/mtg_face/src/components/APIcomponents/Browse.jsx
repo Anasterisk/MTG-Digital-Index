@@ -17,7 +17,7 @@ export default function Browse (){
                 try{
                     const response = await axios.get(`http://localhost:8000/api/cards`)
                     setCards(response.data)
-                    // const response = await axios.get(`http://api.magicthegathering.io/v1/cards?page=2`)
+                    // const response = await axios.get(`http://api.magicthegathering.io/v1/cards?page`)
                     // setCards(response.data.cards)
                     console.log(response)
                 } catch (error){
@@ -29,33 +29,21 @@ export default function Browse (){
         },[])
     
     const goToCard =(x)=>{
-        navigate(`card/${x.multiverseid}`)
+        navigate(`/api/card/${x.id}`)
     }
-    const nextPage = ()=>{
-        setPage(page+1)
-    }
-    // const previousPage = ()=>{
-    //     if (page == 1){
-    //         setPage(311)
-    //     } else {
-    //         setPage(page-1)
-    //     }
-    // }
+
 console.log(cards)
     return(
         (!cards)? null:
         <div>
             <div>
                 {cards.map((x)=>(
-                    // (!x.imageUrl)?null:
-                    <div>
-                    <img onClick={()=>goToCard(x)}src={x.imageUrl}></img>
+                    <div onClick={()=>goToCard(x)}>
+                    <img src={x.imageUrl}></img>
                     <div>{x.name}</div>
                     </div>
                 ))}
             </div>
-            {/* <button onClick={()=>previousPage()} >Previous Page</button> */}
-            {/* <button onClick={()=>nextPage()}> Next Page</button> */}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect, useContext } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, Link } from "react-router-dom"
 import { DataContext } from "./DataContext";
 
 export default function Profile (){
@@ -30,6 +30,7 @@ console.log(userInfo)
         (!user)? null:
         <div>
             <div>{user.name}'s Page</div>
+            <div> <button onClick={()=>(navigate(`create/${userInfo.id}`))}> Build a Deck</button> </div>
             <div>
                 {user.owner.map((x)=>(
                     <div onClick={()=>goToList(x)}>

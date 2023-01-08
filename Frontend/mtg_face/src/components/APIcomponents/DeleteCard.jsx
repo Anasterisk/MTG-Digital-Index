@@ -15,7 +15,7 @@ export default function DeleteCard (){
     }
     const submit = async()=>{
         await deleteCard()
-        navigate(`/api`,{replace:true})
+        navigate(`/api/browse`,{replace:true})
     }
 
     return (
