@@ -36,9 +36,9 @@ console.log(cards)
     return(
         (!cards)? null:
         <div >
-            <div >
+            <div class='space-x-4 inline-flex flex-wrap'>
                 {cards.map((x)=>(
-                    <div onClick={()=>goToCard(x)}>
+                    <div class='hover:shadow-xl hover:font-bold' onClick={()=>goToCard(x)}>
                     <img src={x.imageUrl}></img>
                     <div>{x.name}</div>
                     </div>

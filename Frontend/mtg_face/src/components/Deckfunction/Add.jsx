@@ -50,12 +50,12 @@ export default function Add(props){
     console.log(deck)
     return (
         (!user)? null:
-        <div>
+            <div class='relative'>
             {(deck.listId!==null)? null:
-            <div>
-            <div>Decks: </div>
+            <div class='inline-flex items-center' >
+            <button class=''>Add to Deck: </button>
             {user.owner.map((x,y)=>(
-                <div onClick={()=>setValue(x.id,y)} value={x.id}> {x.name}</div>
+                <div class='hover:bg-blue-500 hover:text-white' onClick={()=>setValue(x.id,y)} value={x.id}> {x.name}</div>
             ))}
             </div>}
             {(deck.listId==null)?null:

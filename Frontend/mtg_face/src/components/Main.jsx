@@ -14,7 +14,7 @@ export default function Main (){
     
     return(
         <div>
-            <div className='bg-med m-2 p-2 border-b-2 border-highlight cursor-pointer shadow-md.'>I am the main</div>
+            <div className='bg-gray-300 bg-med m-2 p-2 border-b-2 border-highlight cursor-pointer shadow-md.'></div>
             <Routes>
                 <Route path='/'             element = {<Landing/>}/>
                 <Route path='/register'     element = {<Register/>}/>

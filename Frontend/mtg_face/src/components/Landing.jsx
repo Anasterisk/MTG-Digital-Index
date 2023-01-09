@@ -4,7 +4,7 @@ export default function Landing (){
 
     return(
         <div>
-            I am the landing
+           Welcome, gather your cards and build your decks here!
         </div>
     )
 }
