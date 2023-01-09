@@ -35,8 +35,8 @@ export default function Browse (){
 console.log(cards)
     return(
         (!cards)? null:
-        <div>
-            <div>
+        <div >
+            <div >
                 {cards.map((x)=>(
                     <div onClick={()=>goToCard(x)}>
                     <img src={x.imageUrl}></img>

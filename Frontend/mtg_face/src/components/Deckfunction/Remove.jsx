@@ -21,7 +21,7 @@ console.log(x)
 
     return(
         <div>
-            <button onClick={()=>submit()}>Remove</button>
+            <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=>submit()}>Remove</button>
         </div>
     )
 }

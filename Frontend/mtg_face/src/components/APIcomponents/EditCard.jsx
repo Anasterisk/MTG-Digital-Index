@@ -80,7 +80,7 @@ export default function EditCard (){
             <input type='text' id='uniqueId' placeholder={card.uniqueId} onChange ={handleChange} value={form.uniqueId}></input>
             <label> ImageUrl:</label>
             <input type='text' id='imageUrl' placeholder={card.imageUrl} onChange ={handleChange} value={form.imageUrl}></input>
-            <button type='submit'>Submit</button>
+            <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Submit</button>
         </form>
     </div>
     )

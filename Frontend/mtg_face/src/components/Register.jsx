@@ -34,17 +34,23 @@ export default function Register (){
         navigate('/login')
     }
 
+    const a='grid grid-cols-2 border-2'
     return(
-        <div>
-            I am the register
-            <form onSubmit={handleSubmit}>
+        <div className='container mx-auto '>
+            <form  class='inline-grid grid-rows-3' onSubmit={handleSubmit}>
+                <div class={`${a}`}>
                 <label> Name:</label>
                 <input type='text' id='name' onChange ={handleChange} value={form.name}></input>
+                </div>
+                <div class={`${a}`}>
                 <label> Username:</label>
                 <input type='text' id='username' onChange ={handleChange} value={form.username}></input>
+                </div>
+                <div class={`${a}`}>
                 <label> Password:</label>
                 <input type='text' id='password' onChange ={handleChange} value={form.password}></input>
-                <button type='submit'>Submit</button>
+                </div>
+                <button class="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded" type='submit'>Submit</button>
             </form>
         </div>
     )

@@ -60,7 +60,7 @@ export default function EditList (){
             <label> Description:</label>
             <input type='text' id='description' placeholder={list.description} onChange ={handleChange} value={form.description}></input>
 
-            <button type='submit'>Submit</button>
+            <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Submit</button>
         </form>
     </div>
     )

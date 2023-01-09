@@ -36,7 +36,7 @@ export default function Claim (props){
         <div>
             <form onSubmit={handleSubmit}>
                 
-                <button type='submit'>Submit</button>
+                <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Submit</button>
             </form>
         </div>
     )

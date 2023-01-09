@@ -59,8 +59,9 @@ export default function Add(props){
             ))}
             </div>}
             {(deck.listId==null)?null:
-            <button onClick={()=>claimCard()}>Add to {user.owner[deck.deckValue].name}?</button>}
-            {(deck.listId==null)?null:<button onClick={()=>(setValue(null,null))}>Select a different Deck?</button>}
+            <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=>claimCard()}>Add to {user.owner[deck.deckValue].name}?</button>}
+            {(deck.listId==null)?null:
+            <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=>(setValue(null,null))}>Select a different Deck?</button>}
         </div>
     )
 }

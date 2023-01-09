@@ -28,16 +28,16 @@ export default function Login (){
         const handleSubmit = async (e)=>{
             e.preventDefault()
             await login(form)
-            setForm(intialState)
+            navigate('/profile')
         }
     return(
         <div>
-            <form onSubmit={handleSubmit}>
-                <label> Username:</label>
+            <form class='border-2 inline-grid grid-cols-2'onSubmit={handleSubmit}>
+                <label class='border-2'> Username:</label>
                 <input type='text' id='username' onChange ={handleChange} value={form.username}></input>
-                <label> Password:</label>
+                <label class='border-2'> Password:</label>
                 <input type='text' id='password' onChange ={handleChange} value={form.password}></input>
-                <button type='submit'>Submit</button>
+                <button class="col-span-2 bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" type='submit'>Submit</button>
             </form>
         </div>
     )

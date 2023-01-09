@@ -53,7 +53,7 @@ console.log(card)
             <div>Id: {card.multiverseid}</div> */}
             </div>
             <Add card={card}/>
-            <button onClick={()=>editCard()}>Edit Card</button>
+            <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=>editCard()}>Edit Card</button>
         </div>
     )
 }
