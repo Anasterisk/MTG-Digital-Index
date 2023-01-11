@@ -17,7 +17,7 @@ export default function EditList (){
     useEffect(()=>{
         const getList = async ()=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/lists/${id}`)
+                    const response = await axios.get(`https://p4mtg.herokuapp.com/api/lists/${id}`)
                     setList(response.data)
                     console.log(response)
                 } catch (error){
@@ -31,7 +31,7 @@ export default function EditList (){
         
     const updateList = async (data)=>{
                 try{
-                    const response = await axios.put(`http://localhost:8000/api/lists/${id}`, data)
+                    const response = await axios.put(`https://p4mtg.herokuapp.com/api/lists/${id}`, data)
                     setList(response.data)
                     console.log(response)
                 } catch (error){

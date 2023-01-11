@@ -15,7 +15,7 @@ export default function Login (){
     const {userInfo, setUserInfo} = useContext(DataContext)
         const login = async (data)=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/users/login/bypass`, data )
+                    const response = await axios.get(`https://p4mtg.herokuapp.com/api/users/login/bypass`, data )
                     setUser(response.data)
                     setUserInfo(response.data[0])
                 } catch (error){

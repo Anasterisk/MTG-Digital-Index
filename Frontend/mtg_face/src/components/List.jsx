@@ -12,8 +12,9 @@ export default function List (){
     useEffect(()=>{
         const getList = async () =>{
             try{
-                const response = await axios.get(`http://localhost:8000/api/lists/${id}`)
+                const response = await axios.get(`https://p4mtg.herokuapp.com/api/lists/${id}`)
                 setList(response.data)
+                console.log(response)
             } catch (error){
                 throw error
             }
@@ -23,8 +24,6 @@ export default function List (){
     const goToCard =(x)=>{
         navigate(`/api/card/${x.id}`)
     }
-
-    console.log(edit)
     return(
         (!list)?null:
         <div >
@@ -44,8 +43,10 @@ export default function List (){
                     <div class='w-full ' onClick={()=>goToCard(x)}>
                     <img class='w-full rounded' src={x.imageUrl}  ></img>
                     </div>
-                    <div class='group-hover:bg-green-700 hover:text-white bg-gray-300 font-bold rounded-t'>{x.name}</div>
-                    <div class= 'group-hover:bg-green-700 bg-gray-300 rounded-b'><Remove deck={x.CardList}/></div>
+                    <div class='group-hover:bg-green-700 hover:text-white bg-gray-300 font-bold rounded-t'>
+                        {x.name}</div>
+                    <div class= 'group-hover:bg-green-700 bg-gray-300 rounded-b'>
+                        <Remove deck={x.CardList}/></div>
                     </div>
                     </div>
                 

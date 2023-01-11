@@ -23,7 +23,7 @@ export default function EditCard (){
     useEffect(()=>{
         const getCard = async ()=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/cards/${id}`)
+                    const response = await axios.get(`https://p4mtg.herokuapp.com/api/cards/${id}`)
                     setForm(response.data)
                     console.log(response)
                 } catch (error){
@@ -37,7 +37,7 @@ export default function EditCard (){
         
     const updateCard = async (data)=>{
                 try{
-                    const response = await axios.put(`http://localhost:8000/api/cards/edit/${id}`, data)
+                    const response = await axios.put(`https://p4mtg.herokuapp.com/api/cards/edit/${id}`, data)
                     setCard(response.data)
                     console.log(response)
                 } catch (error){

@@ -8,15 +8,14 @@ let x=props.deck
 
     const removeFromDeck = async ()=>{
         try{
-            const response = axios.delete(`http://localhost:8000/api/edit/remove?list_id=${x.listId}&card_id=${x.cardId}`)
+            const response = axios.delete(`https://p4mtg.herokuapp.com/api/edit/remove?list_id=${x.listId}&card_id=${x.cardId}`)
             return response.data
         }catch(error){
             throw error}
     }
-console.log(x)
     const submit = async()=>{
         await removeFromDeck()
-        navigate(`/api`,{replace:true})
+        navigate(0)
     }
 
     return(

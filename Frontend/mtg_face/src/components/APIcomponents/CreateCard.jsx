@@ -24,7 +24,7 @@ export default function CreateCard (){
 
     const submitCard = async(data) =>{
         try{
-            const response = await axios.post(`http://localhost:8000/api/cards/submit`, data)
+            const response = await axios.post(`https://p4mtg.herokuapp.com/api/cards/submit`, data)
             return response.data
         } catch(error){
             throw error

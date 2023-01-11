@@ -17,7 +17,7 @@ export default function EditList (){
         
     const updateList = async (data)=>{
                 try{
-                    const response = await axios.post(`http://localhost:8000/api/lists/${id}`, data)
+                    const response = await axios.post(`hhttps://p4mtg.herokuapp.com/api/lists/${id}`, data)
                     setList(response.data)
                     console.log(response)
                 } catch (error){

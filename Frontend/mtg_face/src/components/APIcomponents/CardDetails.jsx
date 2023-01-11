@@ -12,7 +12,7 @@ export default function CardDetails (){
     useEffect(()=>{
         const getCard = async ()=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/cards/${id}`)
+                    const response = await axios.get(`https://p4mtg.herokuapp.com/api/cards/${id}`)
                     setCard(response.data)
                     console.log(response)
                 } catch (error){

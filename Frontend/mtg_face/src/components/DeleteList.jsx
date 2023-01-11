@@ -7,7 +7,7 @@ export default function DeleteList (){
     
     const deletelist = async()=>{
         try{
-            const response = await axios.delete(`http://localhost:8000/api/lists/${id}`)
+            const response = await axios.delete(`https://p4mtg.herokuapp.com/api/lists/${id}`)
             return response.data
         }catch(error){
             throw error

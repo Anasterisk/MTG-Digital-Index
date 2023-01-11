@@ -22,7 +22,7 @@ export default function Claim (props){
             
     const claim = async(data) =>{
         try{
-            const response = await axios.create(`http://localhost:8000/cards/`, data)
+            const response = await axios.create(`https://p4mtg.herokuapp.com/cards/`, data)
             return response.data
         } catch(error){
             throw error

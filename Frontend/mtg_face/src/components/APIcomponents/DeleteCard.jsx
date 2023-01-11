@@ -7,7 +7,7 @@ export default function DeleteCard (){
     
     const deleteCard = async()=>{
         try{
-            const response = await axios.delete(`http://localhost:8000/api/cards/${id}`)
+            const response = await axios.delete(`https://p4mtg.herokuapp.com/api/cards/${id}`)
             return response.data
         }catch(error){
             throw error

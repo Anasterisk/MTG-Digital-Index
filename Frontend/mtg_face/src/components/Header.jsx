@@ -1,11 +1,12 @@
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 export default function Header (){
+    let navigate=useNavigate()
 let border = " bg-gray-400 text-white font-bold py-2 px-4"
     return(
         <div className=" bg-gray-300 grid grid-flow-row grid-cols-3 ...">
             <div className=" col-span-2 flex-inline 
-            text-5xl text-center">
+            text-5xl text-center" onClick={()=>navigate('/')}>
                 MTG Deck Builder
             </div>
         <div className="  flex flex-row... justify-end  space-x-1 text-xs text-bottom">

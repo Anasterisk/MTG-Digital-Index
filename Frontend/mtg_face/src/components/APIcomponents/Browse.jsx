@@ -15,7 +15,7 @@ export default function Browse (){
     useEffect(()=>{
         const getCards = async ()=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/cards`)
+                    const response = await axios.get(`https://p4mtg.herokuapp.com/api/cards`)
                     setCards(response.data)
                     // const response = await axios.get(`http://api.magicthegathering.io/v1/cards?page`)
                     // setCards(response.data.cards)

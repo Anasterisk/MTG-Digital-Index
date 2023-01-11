@@ -1,8 +1,7 @@
 import axios from "axios"
 import { useState, useEffect, useContext } from "react"
-import { useNavigate, useParams } from "react-router-dom"
 import { DataContext } from "../DataContext"
-//list_id=x&card_id=y
+
 export default function Add(props){
     
     const {userInfo, setUserInfo} = useContext(DataContext)
@@ -17,7 +16,7 @@ export default function Add(props){
     useEffect(()=>{
         const getUser = async ()=>{
                 try{
-                    const response = await axios.get(`http://localhost:8000/api/users/get/${id}`)
+                    const response = await axios.get(`https://p4mtg.herokuapp.com/api/users/get/${id}`)
                     setUser(response.data)
                 } catch (error){
                     throw error
@@ -29,7 +28,7 @@ export default function Add(props){
     
         const addCard = async ()=>{
         try {
-            const response = await axios.post(`http://localhost:8000/api/edit/add?list_id=${deck.listId}&card_id=${y}`)
+            const response = await axios.post(`https://p4mtg.herokuapp.com/api/edit/add?list_id=${deck.listId}&card_id=${y}`)
             return response.data
         } catch (error){
             throw error
@@ -44,10 +43,6 @@ export default function Add(props){
         setDeck({deckValue:i, listId:e})
     }
 
-   
-    console.log(user)
-    console.log(y)
-    console.log(deck)
     return (
         (!user)? null:
             <div class='relative'>

@@ -12,7 +12,7 @@ export default function Profile (){
 useEffect(()=>{
     const getUser = async ()=>{
             try{
-                const response = await axios.get(`http://localhost:8000/api/users/get/${userInfo.id}`)
+                const response = await axios.get(`https://p4mtg.herokuapp.com/api/users/get/${userInfo.id}`)
                 setUser(response.data)
                 
             } catch (error){
